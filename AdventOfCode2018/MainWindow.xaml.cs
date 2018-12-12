@@ -25,9 +25,31 @@ namespace AdventOfCode2018
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Day1_Calculate(object sender, RoutedEventArgs e)
         {
+            int currentFrequency = 0;
+            int lineCount = InputBox.LineCount;
 
-        }
+            char[] trimChars = { '+', '-' };
+            for (int lineNumber = 0; lineNumber < lineCount; lineNumber++)
+            {
+                string line = InputBox.GetLineText(lineNumber);
+                string numberText = line.TrimStart(trimChars);
+                int number = 0;
+                if (Int32.TryParse(numberText, out number))
+                {
+                    if (line[0] == '+')
+                    {
+                        currentFrequency += number;
+                    }
+                    else
+                    {
+                        currentFrequency -= number;
+                    }                        
+                }
+            }
+
+            OutFrequency.Text = currentFrequency.ToString();
+        }  
     }
 }

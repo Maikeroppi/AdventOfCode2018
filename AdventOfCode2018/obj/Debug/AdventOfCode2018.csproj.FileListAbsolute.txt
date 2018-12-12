@@ -1,0 +1,15 @@
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.csprojAssemblyReference.cache
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\MainWindow.g.cs
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\App.g.cs
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018_MarkupCompile.cache
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018_MarkupCompile.lref
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\bin\Debug\AdventOfCode2018.exe.config
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\bin\Debug\AdventOfCode2018.exe
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\bin\Debug\AdventOfCode2018.pdb
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\MainWindow.baml
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.g.resources
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.Properties.Resources.resources
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.csproj.GenerateResource.cache
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.csproj.CoreCompileInputs.cache
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.exe
+D:\GitHub\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.pdb
