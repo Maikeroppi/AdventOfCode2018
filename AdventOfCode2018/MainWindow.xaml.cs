@@ -30,10 +30,18 @@ namespace AdventOfCode2018
             int currentFrequency = 0;
             int lineCount = InputBox.LineCount;
 
+            HashSet<int> seenFrequencies = new HashSet<int>();
+            seenFrequencies.Add(0);
+
+            bool lookingForDuplicate = true;
+
             char[] trimChars = { '+', '-' };
-            for (int lineNumber = 0; lineNumber < lineCount; lineNumber++)
+
+            bool keepGoing = true;
+            bool completedSum = false;
+            for (int lineNumber = 0; keepGoing;)
             {
-                string line = InputBox.GetLineText(lineNumber);
+                string line = InputBox.GetLineText(lineNumber % lineCount);
                 string numberText = line.TrimStart(trimChars);
                 int number = 0;
                 if (Int32.TryParse(numberText, out number))
@@ -45,11 +53,35 @@ namespace AdventOfCode2018
                     else
                     {
                         currentFrequency -= number;
-                    }                        
-                }
-            }
+                    }
+                    
+                    if (lookingForDuplicate)
+                    {
+                        if (seenFrequencies.Contains(currentFrequency))
+                        {
+                            DoubleFrequency.Text = currentFrequency.ToString();
+                            lookingForDuplicate = false;
+                        }
+                        else
+                        {
+                            seenFrequencies.Add(currentFrequency);
+                        }
+                    }
+               }
 
-            OutFrequency.Text = currentFrequency.ToString();
-        }  
+                lineNumber++;
+                if (lineNumber >= lineCount)
+                {
+                    if (!completedSum)
+                    {
+                        OutFrequency.Text = currentFrequency.ToString();
+                        completedSum = true;
+                    }
+                    lineNumber = 0;
+                }
+
+                keepGoing = !completedSum || lookingForDuplicate;
+            }
+        }
     }
 }

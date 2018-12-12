@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdventOfCode2018"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Advent of Code 2018" Height="450" Width="800">
     <Grid>
         <Label x:Name="EnterInputLabel" Content="Enter Text Input&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="280" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AcceptsReturn="True"/>
-        <Button x:Name="CalculateButton" Content="Caclulate" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="120" Click="Day1_Calculate" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="280" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" AcceptsReturn="True"/>
+        <Button x:Name="CalculateButton" Content="Caclulate" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="159" Click="Day1_Calculate" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,7 +20,9 @@
             </Button.RenderTransform>
         </Button>
         <Label x:Name="AnswerLabel" Content="Answer:" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="54"/>
-        <TextBox x:Name="OutFrequency" HorizontalAlignment="Left" Height="23" Margin="64,354,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="66" />
+        <TextBox x:Name="OutFrequency" HorizontalAlignment="Left" Height="23" Margin="103,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" IsReadOnly="True" />
+        <Label Content="Double Freq:" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="DoubleFrequency" HorizontalAlignment="Left" Height="23" Margin="103,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" IsReadOnly="True"/>
 
     </Grid>
 </Window>
