@@ -18,6 +18,7 @@ namespace AdventOfCode2018
         public AdventViewModel()
         {
             DayViewModels.Add(new Day1ViewModel());
+            DayViewModels.Add(new Day2ViewModel());
 
             CurrentDayViewModel = DayViewModels.Last();
         }

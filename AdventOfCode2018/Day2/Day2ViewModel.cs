@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2018
 {
-    public class Day1ViewModel : DayViewModel
+    class Day2ViewModel : DayViewModel
     {
         public override string Title
         {
             get
             {
-                return "Day 1: Chronal Calibration";
+                return "Day 2: Inventory Management System";
             }
         }
     }
