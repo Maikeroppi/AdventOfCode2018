@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AdventOfCode2018
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Day1View.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Day1 : UserControl
     {
-        public MainWindow()
+        public Day1()
         {
             InitializeComponent();
         }

@@ -13,5 +13,14 @@ namespace AdventOfCode2018
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            AdventDayView dayView = new AdventDayView();
+            AdventViewModel context = new AdventViewModel();
+            dayView.DataContext = context;
+            dayView.Show();
+        }
     }
 }
