@@ -25,63 +25,70 @@ namespace AdventOfCode2018
             InitializeComponent();
         }
 
-        private void Day1_Calculate(object sender, RoutedEventArgs e)
+        private int[] ConvertTextToFrequencies()
+        {
+            int totalLines = InputBox.LineCount;
+
+            int[] returnArray = new int[totalLines];
+            for (int lineNumber = 0; lineNumber < totalLines; ++lineNumber)
+            {
+                string line = InputBox.GetLineText(lineNumber);
+                int number = 0;
+                if (Int32.TryParse(line, out number))
+                {
+                    returnArray[lineNumber] = number;
+                }
+            }
+
+            return returnArray;
+        }
+
+        private int CalculateFrequency(ref int[] frequencies)
         {
             int currentFrequency = 0;
-            int lineCount = InputBox.LineCount;
+            foreach(int frequency in frequencies)
+            {
+                currentFrequency += frequency;
+            }
 
+            return currentFrequency;
+        }
+
+        private int FindFirstDuplicate(ref int[] frequencies)
+        {
+            int frequencyCount = frequencies.Length;
             HashSet<int> seenFrequencies = new HashSet<int>();
             seenFrequencies.Add(0);
 
-            bool lookingForDuplicate = true;
+            bool foundDuplicate = false;
+            int currentValue = 0;
 
-            char[] trimChars = { '+', '-' };
-
-            bool keepGoing = true;
-            bool completedSum = false;
-            for (int lineNumber = 0; keepGoing;)
+            for(int i = 0; !foundDuplicate; ++i)
             {
-                string line = InputBox.GetLineText(lineNumber % lineCount);
-                string numberText = line.TrimStart(trimChars);
-                int number = 0;
-                if (Int32.TryParse(numberText, out number))
-                {
-                    if (line[0] == '+')
-                    {
-                        currentFrequency += number;
-                    }
-                    else
-                    {
-                        currentFrequency -= number;
-                    }
-                    
-                    if (lookingForDuplicate)
-                    {
-                        if (seenFrequencies.Contains(currentFrequency))
-                        {
-                            DoubleFrequency.Text = currentFrequency.ToString();
-                            lookingForDuplicate = false;
-                        }
-                        else
-                        {
-                            seenFrequencies.Add(currentFrequency);
-                        }
-                    }
-               }
+                currentValue += frequencies[i % frequencyCount];
 
-                lineNumber++;
-                if (lineNumber >= lineCount)
+                if (seenFrequencies.Contains(currentValue))
                 {
-                    if (!completedSum)
-                    {
-                        OutFrequency.Text = currentFrequency.ToString();
-                        completedSum = true;
-                    }
-                    lineNumber = 0;
+                    foundDuplicate = true;
                 }
-
-                keepGoing = !completedSum || lookingForDuplicate;
+                else
+                {
+                    seenFrequencies.Add(currentValue);
+                }
             }
+
+            return currentValue;
+        }
+
+        private void Day1_Calculate(object sender, RoutedEventArgs e)
+        {
+            int[] frequencies = ConvertTextToFrequencies();
+            int finalFrequency = CalculateFrequency(ref frequencies);
+
+            OutFrequency.Text = finalFrequency.ToString();
+
+            int duplicateFrequency = FindFirstDuplicate(ref frequencies);
+            DoubleFrequency.Text = duplicateFrequency.ToString();
         }
     }
 }
