@@ -82,10 +82,81 @@ namespace AdventOfCode2018
             return doubleCount * tripleCount;
         }
 
+        // Adapted from Wikipedia: https://en.wikipedia.org/wiki/Levenshtein_distance#Recursive
+        static int CalculateLevenshteinDistance(string first, string second)
+        {
+            int cost;
+
+            /* base case: empty strings */
+            if (first.Length == 0) return second.Length;
+            if (second.Length == 0) return first.Length;
+
+            /* test if last characters of the strings match */
+            if (first[first.Length - 1] == second[second.Length - 1])
+            {
+                cost = 0;
+            }
+            else
+            {
+                cost = 1;
+            }
+
+            string firstSub = first.Substring(0, first.Length - 1);
+            string secondSub = second.Substring(0, second.Length - 1);
+            /* return minimum of delete char from s, delete char from t, and delete char from both */
+            return Math.Min(Math.Min(CalculateLevenshteinDistance(firstSub, second) + 1,
+                           CalculateLevenshteinDistance(first, secondSub) + 1),
+                           CalculateLevenshteinDistance(firstSub, secondSub) + cost);
+        }
+
+        private static bool StringsAreSimilar(ref string first, ref string second)
+        {
+            bool differsByOne = false;
+
+            // Strings are the same length in this problem
+            for (int i = 0; i < first.Length; ++i)
+            {
+                if (first[i] != second[i])
+                {
+                    if (differsByOne)
+                    {
+                        //  second difference; not similar
+                        return false;
+                    }
+                    else
+                    {
+                        differsByOne = true;
+                    }
+                }
+            }
+
+            return differsByOne;
+        }
+
+        private void FindSimilarStrings()
+        {
+            OutputTextBox.Text = "";
+
+            for(int i = 0; i < inputLines.Length; ++i)
+            {
+                for (int j = 0; j < inputLines.Length; ++j)
+                {
+                    if (i == j) continue;
+
+                    if (StringsAreSimilar(ref inputLines[i], ref inputLines[j]))
+                    {
+                        OutputTextBox.AppendText(inputLines[i] + Environment.NewLine);
+                    }
+                }
+            }
+        }
+
         private void Day2_Calculate(object sender, RoutedEventArgs e)
         {
             int checksum = CalculateChecksum(ref inputLines);
             ChecksumText.Text = checksum.ToString();
+
+            FindSimilarStrings();
         }
     }
 }
