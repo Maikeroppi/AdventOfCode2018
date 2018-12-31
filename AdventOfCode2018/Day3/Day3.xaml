@@ -12,5 +12,7 @@
         <Button x:Name="CalculateButton" Content="Calculate" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="159" Click="Day3_Calculate" />
         <Label x:Name="OverlapLabel" Content="Overlapping Inches:" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="88"/>
         <TextBox x:Name="OverlapText" HorizontalAlignment="Left" Height="23" Margin="103,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" IsReadOnly="True" />
+        <Label x:Name="ClearOrderLabel" Content="Clear Order:" HorizontalAlignment="Left" Margin="10,377,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="ClearOrderText" HorizontalAlignment="Left" Height="23" Margin="103,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" IsReadOnly="True" />
     </Grid>
 </UserControl>

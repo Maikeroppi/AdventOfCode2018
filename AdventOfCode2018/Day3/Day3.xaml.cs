@@ -100,6 +100,34 @@ namespace AdventOfCode2018
             return overlaps;
         }
 
+        private bool OrderOverlaps(ClothOrder order, ref int[,] cloth)
+        {
+            for (int i = 0; i < order.width; ++i)
+            {
+                for (int j = 0; j < order.height; j++)
+                {
+                    if (cloth[order.x + i, order.y + j] > 1)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private int GetNonOverlappingOrderNumber(ref ClothOrder[] orders, ref int[,] clothClaims)
+        {
+            foreach (ClothOrder order in orders)
+            {
+                if (!OrderOverlaps(order, ref clothClaims))
+                {
+                    return order.orderNumber;
+                }
+            }
+            return -1;
+        }
+
         private void Day3_Calculate(object sender, RoutedEventArgs e)
         {
             ClothOrder[] orders = ParseOrders(inputLines);
@@ -109,6 +137,8 @@ namespace AdventOfCode2018
             int overlaps = CountOverlaps(ref clothPiece);
 
             OverlapText.Text = overlaps.ToString();
+            int clearOrderNumber = GetNonOverlappingOrderNumber(ref orders, ref clothPiece);
+            ClearOrderText.Text = clearOrderNumber.ToString();
         }
     }
 }
