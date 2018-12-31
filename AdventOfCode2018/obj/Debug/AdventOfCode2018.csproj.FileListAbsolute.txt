@@ -32,4 +32,6 @@ C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.c
 C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.csproj.CoreCompileInputs.cache
 C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.exe
 C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.pdb
+C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\Day3\Day3.g.cs
+C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\Day3\Day3.baml
 C:\Michael\Github\AdventOfCode2018\AdventOfCode2018\obj\Debug\AdventOfCode2018.csprojAssemblyReference.cache

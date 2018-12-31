@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2018
 {
-    public class Day1ViewModel : DayViewModel
+    class Day3ViewModel : DayViewModel
     {
-        public Day1ViewModel() : base("Day 1: Chronal Calibration") { }
+        public Day3ViewModel() : base("Day 3: No Matter How You Slice It") { }
     }
 }

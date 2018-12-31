@@ -79,13 +79,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Day3\Day3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Day1\Day1ViewModel.cs" />
-    <Compile Include="Day2\Day2ViewModel.cs" />
     <Compile Include="Day2\Day2.xaml.cs">
       <DependentUpon>Day2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Day2\Day2ViewModel.cs" />
+    <Compile Include="Day3\Day3.xaml.cs">
+      <DependentUpon>Day3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Day3\Day3ViewModel.cs" />
     <Compile Include="DayViewModel.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -113,9 +121,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Input\Day3.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Input\Day2.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

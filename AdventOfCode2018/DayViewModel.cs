@@ -8,9 +8,26 @@ using System.Windows.Input;
 
 namespace AdventOfCode2018
 {
-    public abstract class DayViewModel : INotifyPropertyChanged
+    public class DayViewModel : INotifyPropertyChanged
     {
-        public virtual string Title { get; }
+        public DayViewModel(string title)
+        {
+            this.Title = title;
+        }
+
+        private string _title;
+        public virtual string Title
+        {
+            get
+            {
+                return _title;
+            }
+
+            set
+            {
+                _title = value;
+            }
+        }
 
         // Notify property changed stuff
         public event PropertyChangedEventHandler PropertyChanged;

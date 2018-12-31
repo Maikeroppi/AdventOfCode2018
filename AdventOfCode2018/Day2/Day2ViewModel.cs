@@ -8,12 +8,7 @@ namespace AdventOfCode2018
 {
     class Day2ViewModel : DayViewModel
     {
-        public override string Title
-        {
-            get
-            {
-                return "Day 2: Inventory Management System";
-            }
-        }
+        public Day2ViewModel() : base("Day 2: Inventory Management System")
+        { }
     }
 }

@@ -14,6 +14,9 @@
         <DataTemplate DataType="{x:Type local:Day2ViewModel}">
             <local:Day2 />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Day3ViewModel}">
+            <local:Day3 />
+        </DataTemplate>
     </Window.Resources>
 
     <DockPanel>
