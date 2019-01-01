@@ -87,6 +87,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Day5\Day5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Day1\Day1ViewModel.cs" />
@@ -102,6 +106,10 @@
       <DependentUpon>Day4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Day4\Day4ViewModel.cs" />
+    <Compile Include="Day5\Day5.xaml.cs">
+      <DependentUpon>Day5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Day5\Day5ViewModel.cs" />
     <Compile Include="DayViewModel.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -137,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Input\Day4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Input\Day5.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

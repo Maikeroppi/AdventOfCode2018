@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="AdventOfCode2018.Day5"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdventOfCode2018"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Label x:Name="InputLabel" Content="Input:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="197" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="449" VerticalScrollBarVisibility="Auto"/>
+        <Label Content="Reacted Polymer Length:" HorizontalAlignment="Left" Margin="17,255,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AnswerText" HorizontalAlignment="Left" Height="22" Margin="163,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
+        <Button x:Name="CalculateButton" Content="Calculate" HorizontalAlignment="Left" Margin="17,326,0,0" VerticalAlignment="Top" Width="118" Click="CalculateButton_Click"/>
+    </Grid>
+</UserControl>
