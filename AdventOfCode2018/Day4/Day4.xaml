@@ -8,9 +8,11 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Label x:Name="InputLabel" Content="Input:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="296" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="449" VerticalScrollBarVisibility="Auto"/>
-        <Label Content="Answer:" HorizontalAlignment="Left" Margin="12,349,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="AnswerText" HorizontalAlignment="Left" Height="22" Margin="68,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
-        <Button x:Name="CalculateButton" Content="Calculate" Click="CalculateButton_Click" HorizontalAlignment="Left" Margin="12,380,0,0" VerticalAlignment="Top" Width="118"/>
+        <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="197" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="449" VerticalScrollBarVisibility="Auto"/>
+        <Label Content="Answer 1:" HorizontalAlignment="Left" Margin="17,255,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AnswerText" HorizontalAlignment="Left" Height="22" Margin="73,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
+        <Button x:Name="CalculateButton" Content="Calculate" Click="CalculateButton_Click" HorizontalAlignment="Left" Margin="17,326,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label Content="Answer 2:" HorizontalAlignment="Left" Margin="17,282,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Answer2Text" HorizontalAlignment="Left" Height="22" Margin="73,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"/>
     </Grid>
 </UserControl>

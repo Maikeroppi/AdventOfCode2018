@@ -47,12 +47,13 @@ namespace AdventOfCode2018
             public DateTime time;
             public int guardNumber;
             public GuardAction action;
-        }        
+        }
 
         class GuardRecord
         {
             public int totalMinutesAsleep = 0;
             public List<int> minutesAsleep = new List<int>();
+            public Tuple<int, int> sleepiestMinuteAndCount;
         }
 
         TimedAction[] ParseGuardActions(string[] input)
@@ -74,7 +75,7 @@ namespace AdventOfCode2018
                 {
                     action = GuardAction.FallsAsleep;
                 }
-                else if(parts[1].Contains("wakes"))
+                else if (parts[1].Contains("wakes"))
                 {
                     action = GuardAction.WakesUp;
                 }
@@ -137,15 +138,38 @@ namespace AdventOfCode2018
                     case GuardAction.FallsAsleep: break;
                     case GuardAction.WakesUp:
                         UpdateGuardRecord(ref records, activeGuard, lastAction.time.Minute, action.time.Minute);
-                    break;
+                        break;
                     case GuardAction.StartShift: activeGuard = action.guardNumber; break;
                 }
 
                 lastAction = action;
             }
+
+            // Take a copy of the keys so we can update the dictionary for each one
+            List<int> keys = new List<int>(records.Keys);
+
+            foreach (int key in keys)
+            {
+                GuardRecord record = records[key];
+                record.sleepiestMinuteAndCount = GetCount(ref records, key);
+                records[key] = record;
+            }
         }
 
-        int GetAnswer(ref Dictionary<int, GuardRecord> records)
+        Tuple<int, int> GetCount(ref Dictionary<int, GuardRecord> records, int guardNum)
+        {
+            List<int> minutesAsleep = records[guardNum].minutesAsleep;
+            var repeatedMinutes = minutesAsleep.GroupBy(x => x)
+              .Where(g => g.Count() > 1)
+              .Select(y => new { Element = y.Key, Counter = y.Count() })
+              .ToList();
+
+           var maxRepeat = repeatedMinutes.Aggregate((lhs, rhs) => lhs.Counter > rhs.Counter ? lhs : rhs);
+
+            return new Tuple<int, int>(maxRepeat.Element, maxRepeat.Counter);
+        }
+
+        int GetFirstAnswer(ref Dictionary<int, GuardRecord> records)
         {
             var item = records.Aggregate((lhs, rhs) => 
                 lhs.Value.totalMinutesAsleep > rhs.Value.totalMinutesAsleep ? lhs : rhs);
@@ -153,7 +177,6 @@ namespace AdventOfCode2018
             int max = item.Value.totalMinutesAsleep;
             int guardNum = item.Key;
             List<int> minutesAsleep = item.Value.minutesAsleep;
-            HashSet<int> seenValues = new HashSet<int>();
 
             var repeatedMinutes = minutesAsleep.GroupBy(x => x)
               .Where(g => g.Count() > 1)
@@ -166,6 +189,18 @@ namespace AdventOfCode2018
             return guardNum * duplicate;
         }
 
+        int GetSecondAnswer(ref Dictionary<int, GuardRecord> records)
+        {
+            var item = records.Aggregate((lhs, rhs) =>
+                lhs.Value.sleepiestMinuteAndCount.Item2 > rhs.Value.sleepiestMinuteAndCount.Item2 ? lhs : rhs);
+
+            int sleepiestMinute = item.Value.sleepiestMinuteAndCount.Item1;
+            int repeatCount = item.Value.sleepiestMinuteAndCount.Item2;
+            int guardNum = item.Key;
+
+            return guardNum * sleepiestMinute;
+        }
+
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
             TimedAction[] actions = ParseGuardActions(inputLines);
@@ -173,7 +208,8 @@ namespace AdventOfCode2018
             var records = new Dictionary<int, GuardRecord>();
             BuildGuardRecords(ref records, ref actions);
 
-            AnswerText.Text = GetAnswer(ref records).ToString();
+            AnswerText.Text = GetFirstAnswer(ref records).ToString();
+            Answer2Text.Text = GetSecondAnswer(ref records).ToString();
         }
     }
 }
