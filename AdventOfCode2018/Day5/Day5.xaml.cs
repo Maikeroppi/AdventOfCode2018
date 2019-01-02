@@ -33,11 +33,9 @@ namespace AdventOfCode2018
             InputBox.Text = input;
         }
 
-        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        private int ReactPolymer(string text)
         {
-            string text = String.Copy(input);
             int index = 0;
-
             int reactions = 0;
             while (index < text.Length - 1)
             {
@@ -62,7 +60,29 @@ namespace AdventOfCode2018
                 }
             }
 
-            AnswerText.Text = text.Length.ToString();
+            return text.Length;
+        }
+
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            string text = String.Copy(input);
+            AnswerText.Text = ReactPolymer(text).ToString();
+
+            // Second answer
+            int minValue = input.Length;
+
+            for (int i = 0; i < 26; ++i)
+            {
+                int ch = 'a' + i;
+                int CH = 'A' + i;
+                string testString = new string((from c in text
+                                                where c != ch && c != CH
+                                                select c).ToArray());
+
+                minValue = Math.Min(ReactPolymer(testString), minValue);
+            }
+
+            MinPolymerText.Text = minValue.ToString();
         }
     }
 }
