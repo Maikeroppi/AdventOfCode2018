@@ -20,9 +20,14 @@ namespace AdventOfCode2018
     /// </summary>
     public partial class Day1 : UserControl
     {
+        private DayViewModel _viewModel;
+
         public Day1()
         {
             InitializeComponent();
+
+            _viewModel = Util.GetDayViewModel();
+            Util.LoadTextBoxWithInput(_viewModel, InputBox);            
         }
 
         private int[] ConvertTextToFrequencies()
@@ -33,6 +38,7 @@ namespace AdventOfCode2018
             for (int lineNumber = 0; lineNumber < totalLines; ++lineNumber)
             {
                 string line = InputBox.GetLineText(lineNumber);
+
                 int number = 0;
                 if (Int32.TryParse(line, out number))
                 {

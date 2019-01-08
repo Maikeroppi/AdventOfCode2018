@@ -4,6 +4,8 @@ using System.Windows.Input;
 
 namespace AdventOfCode2018
 {
+    // copied from: https://rachel53461.wordpress.com/2011/12/18/navigation-with-mvvm-2/
+
     /// <summary>
     /// A command whose sole purpose is to 
     /// relay its functionality to other

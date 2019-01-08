@@ -8,6 +8,6 @@ namespace AdventOfCode2018
 {
     public class Day4ViewModel : DayViewModel
     {
-        public Day4ViewModel() : base("Day 4: Repose Record") {}
+        public Day4ViewModel() : base("Day 4: Repose Record", "Input/Day4.txt") {}
     }
 }

@@ -20,18 +20,12 @@ namespace AdventOfCode2018
     /// </summary>
     public partial class Day3 : UserControl
     {
+        DayViewModel _viewModel;
         public Day3()
         {
             InitializeComponent();
-            LoadInput();
-        }
-
-        private string[] inputLines;
-        private void LoadInput()
-        {
-            inputLines = System.IO.File.ReadAllLines("Input/Day3.txt");
-            string text = System.IO.File.ReadAllText("Input/Day3.txt");
-            InputBox.Text = text;
+            _viewModel = Util.GetDayViewModel();
+            Util.LoadTextBoxWithInput(_viewModel, InputBox);
         }
 
         public struct ClothOrder
@@ -130,7 +124,7 @@ namespace AdventOfCode2018
 
         private void Day3_Calculate(object sender, RoutedEventArgs e)
         {
-            ClothOrder[] orders = ParseOrders(inputLines);
+            ClothOrder[] orders = ParseOrders(_viewModel.InputLines);
 
             int[,] clothPiece = new int[1000, 1000];
             ApplyOrders(ref orders, ref clothPiece);

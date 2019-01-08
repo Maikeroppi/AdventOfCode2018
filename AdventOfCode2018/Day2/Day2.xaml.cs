@@ -21,21 +21,16 @@ namespace AdventOfCode2018
     /// </summary>
     public partial class Day2 : UserControl
     {
-        private string[] inputLines;
+        DayViewModel _viewModel;
+
         public Day2()
         {
             InitializeComponent();
-            LoadInput();
+            _viewModel = Util.GetDayViewModel();
+            Util.LoadTextBoxWithInput(_viewModel, InputBox);
         }
 
-        private void LoadInput()
-        {
-            inputLines = System.IO.File.ReadAllLines("Input/Day2.txt");
-            string text = System.IO.File.ReadAllText("Input/Day2.txt");
-            InputBox.Text = text;
-        }
-
-        private int CalculateChecksum(ref string[] boxIds)
+        private int CalculateChecksum(string[] boxIds)
         {
             int doubleCount = 0;
             int tripleCount = 0;
@@ -133,7 +128,7 @@ namespace AdventOfCode2018
             return differsByOne;
         }
 
-        private void FindSimilarStrings()
+        private void FindSimilarStrings(string[] inputLines)
         {
             OutputTextBox.Text = "";
 
@@ -153,10 +148,10 @@ namespace AdventOfCode2018
 
         private void Day2_Calculate(object sender, RoutedEventArgs e)
         {
-            int checksum = CalculateChecksum(ref inputLines);
+            int checksum = CalculateChecksum(_viewModel.InputLines);
             ChecksumText.Text = checksum.ToString();
 
-            FindSimilarStrings();
+            FindSimilarStrings(_viewModel.InputLines);
         }
     }
 }

@@ -8,6 +8,6 @@ namespace AdventOfCode2018
 {
     public class Day1ViewModel : DayViewModel
     {
-        public Day1ViewModel() : base("Day 1: Chronal Calibration") { }
+        public Day1ViewModel() : base("Day 1: Chronal Calibration", "Input/Day1.txt") { }
     }
 }

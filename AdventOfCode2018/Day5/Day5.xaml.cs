@@ -20,17 +20,12 @@ namespace AdventOfCode2018
     /// </summary>
     public partial class Day5 : UserControl
     {
+        DayViewModel _viewModel;
         public Day5()
         {
             InitializeComponent();
-            LoadInput();
-        }
-
-        private string input;
-        private void LoadInput()
-        {
-            input = System.IO.File.ReadAllText("Input/Day5.txt");
-            InputBox.Text = input;
+            _viewModel = Util.GetDayViewModel();
+            Util.LoadTextBoxWithInput(_viewModel, InputBox);
         }
 
         private int ReactPolymer(string text)
@@ -65,11 +60,11 @@ namespace AdventOfCode2018
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            string text = String.Copy(input);
+            string text = String.Copy(InputBox.Text.Trim());
             AnswerText.Text = ReactPolymer(text).ToString();
 
             // Second answer
-            int minValue = input.Length;
+            int minValue = text.Length;
 
             for (int i = 0; i < 26; ++i)
             {

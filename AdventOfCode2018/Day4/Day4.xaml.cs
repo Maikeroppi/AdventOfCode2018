@@ -21,18 +21,12 @@ namespace AdventOfCode2018
     /// </summary>
     public partial class Day4 : UserControl
     {
+        DayViewModel _viewModel;
         public Day4()
         {
             InitializeComponent();
-            LoadInput();
-        }
-
-        private string[] inputLines;
-        private void LoadInput()
-        {
-            inputLines = System.IO.File.ReadAllLines("Input/Day4.txt");
-            string text = System.IO.File.ReadAllText("Input/Day4.txt");
-            InputBox.Text = text;
+            _viewModel = Util.GetDayViewModel();
+            Util.LoadTextBoxWithInput(_viewModel, InputBox);
         }
 
         enum GuardAction
@@ -203,7 +197,7 @@ namespace AdventOfCode2018
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            TimedAction[] actions = ParseGuardActions(inputLines);
+            TimedAction[] actions = ParseGuardActions(_viewModel.InputLines);
 
             var records = new Dictionary<int, GuardRecord>();
             BuildGuardRecords(ref records, ref actions);

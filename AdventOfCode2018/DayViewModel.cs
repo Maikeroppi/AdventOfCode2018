@@ -10,9 +10,11 @@ namespace AdventOfCode2018
 {
     public class DayViewModel : INotifyPropertyChanged
     {
-        public DayViewModel(string title)
+        public DayViewModel(string title, string inputFile)
         {
             this.Title = title;
+            this.InputFile = inputFile;
+            LoadDayInput();
         }
 
         private string _title;
@@ -26,6 +28,34 @@ namespace AdventOfCode2018
             set
             {
                 _title = value;
+            }
+        }
+
+        private string _inputFile;
+        public virtual string InputFile
+        {
+            get
+            {
+                return _inputFile;
+            }
+            set
+            {
+                _inputFile = value;
+            }
+        }
+
+        private string[] inputLines;
+        public virtual string[] InputLines
+        {
+            get { return inputLines; }
+        }
+
+        public void LoadDayInput()
+        {
+            string inputFile = InputFile;
+            if (!string.IsNullOrEmpty(inputFile))
+            {
+                inputLines = System.IO.File.ReadAllLines(inputFile);
             }
         }
 

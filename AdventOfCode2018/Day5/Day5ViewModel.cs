@@ -8,6 +8,6 @@ namespace AdventOfCode2018
 {
     public class Day5ViewModel : DayViewModel
     {
-        public Day5ViewModel() : base("Day 5: Alchemical Reduction") { }
+        public Day5ViewModel() : base("Day 5: Alchemical Reduction", "Input/Day5.txt") { }
     }
 }

@@ -8,6 +8,6 @@ namespace AdventOfCode2018
 {
     class Day3ViewModel : DayViewModel
     {
-        public Day3ViewModel() : base("Day 3: No Matter How You Slice It") { }
+        public Day3ViewModel() : base("Day 3: No Matter How You Slice It", "Input/Day3.txt") { }
     }
 }
