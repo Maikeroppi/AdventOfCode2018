@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdventOfCode2018"
+        xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
         mc:Ignorable="d"
        Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         <Label x:Name="EnterInputLabel" Content="Enter Text Input&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="23"/>
         <TextBox x:Name="InputBox" HorizontalAlignment="Left" Height="280" Margin="10,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" AcceptsReturn="True"/>
         <Button x:Name="CalculateButton" Content="Caclulate" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" Width="159" Click="Day1_Calculate" RenderTransformOrigin="0.5,0.5" />
@@ -15,5 +20,8 @@
         <Label Content="Double Freq:" HorizontalAlignment="Left" Margin="10,382,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="DoubleFrequency" HorizontalAlignment="Left" Height="23" Margin="103,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" IsReadOnly="True"/>
 
+        <d3:Chart BottomTitle="Step" LeftTitle="Frequency" Grid.Column="1">
+            <d3:LineGraph x:Name="linegraph" Description="Frequency" Stroke="Blue" StrokeThickness="3" />
+        </d3:Chart>
     </Grid>
 </UserControl>

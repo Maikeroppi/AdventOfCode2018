@@ -51,11 +51,19 @@ namespace AdventOfCode2018
 
         private int CalculateFrequency(ref int[] frequencies)
         {
+            int[] frequencyOverTime = new int[frequencies.Length];
+
             int currentFrequency = 0;
-            foreach(int frequency in frequencies)
+            for(int index = 0; index < frequencies.Length; ++index)
             {
+                int frequency = frequencies[index];
                 currentFrequency += frequency;
+
+                frequencyOverTime[index] = currentFrequency;
             }
+
+            var xRange = Enumerable.Range(0, frequencies.Length);
+            linegraph.Plot(xRange, frequencyOverTime);
 
             return currentFrequency;
         }
